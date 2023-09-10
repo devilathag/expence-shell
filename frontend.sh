@@ -1,6 +1,3 @@
-source common.sh
-component=frontend
-
 echo Installing Nginx
 dnf install nginx -y &>>$log_file
 if [ $? -eq 0 ]; then
@@ -31,7 +28,7 @@ fi
 cd /usr/share/nginx/html
 
 echo Download $component Code
-  curl -s -o /tmp/$component.zip https://expense-artifacts.s3.amazonaws.com/$component.zip >>$log_file
+  curl -s -o /tmp/$frontend.zip https://expense-artifacts.s3.amazonaws.com/$frontend.zip >>$log_file
 if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e[0m"
   else
