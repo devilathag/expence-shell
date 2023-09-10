@@ -1,5 +1,5 @@
 source common.sh
-component=backend
+com=backend
 
 type npm &>>$log_file
 if [ $? -ne 0 ]; then
