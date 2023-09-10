@@ -39,7 +39,7 @@ if [ $? -eq 0 ]; then
 fi
 
 echo Extracting frontend Code
-  unzip /tmp/$frontend.zip >>$log_file
+  unzip /tmp/frontend.zip >>$log_file
 if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e[0m"
   else
