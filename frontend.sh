@@ -1,3 +1,4 @@
+log_file=/tmp/expense.log
 echo Installing Nginx
 dnf install nginx -y &>>$log_file
 if [ $? -eq 0 ]; then
