@@ -6,7 +6,7 @@ dnf module disable mysql -y &>>$log_file
 
 echo Copy MySQL Repo file
 cp mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
-stat_check
+
 
 echo Install MySQL Server
 dnf install mysql-community-server -y &>>$log_file
