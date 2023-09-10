@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
     exit 1
 fi
 
-cd /usr/share/nginx/html
+
 
 echo Download frontend Code
   curl -s -o /tmp/$frontend.zip https://expense-artifacts.s3.amazonaws.com/$frontend.zip >>$log_file
@@ -37,7 +37,7 @@ if [ $? -eq 0 ]; then
     echo -e "\e[31mFAILED\e[0m"
     exit 1
 fi
-
+cd /usr/share/nginx/html
 echo Extracting frontend Code
   unzip /tmp/frontend.zip >>$log_file
 if [ $? -eq 0 ]; then
