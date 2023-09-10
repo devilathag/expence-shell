@@ -1,7 +1,7 @@
 source common.sh
 
 echo Disable MySQL 8 Version
-dnf module disable mysql -y &>>$log_file
+dnf module disable -y mysql &>>$log_file
 stat_check
 
 echo Copy MySQL Repo file
