@@ -1,49 +1,24 @@
-log_file=/tmp/expense.log
+source common.sh
 
 echo Disable MySQL 8 Version
 dnf module disable mysql -y &>>$log_file
-if [ $? -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
-  else
-    echo -e "\e[31mFAILED\e[0m"
-    exit 1
-fi
+stat_check
 
 
 echo Copy MySQL Repo file
 cp mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
-if [ $? -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
-  else
-    echo -e "\e[31mFAILED\e[0m"
-    exit 1
-fi
+stat_check
 
 echo Install MySQL Server
 dnf install mysql-community-server -y &>>$log_file
-if [ $? -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
-  else
-    echo -e "\e[31mFAILED\e[0m"
-    exit 1
-fi
+stat_check
 
 echo Start MySQL Service
 systemctl enable mysqld &>>$log_file
 systemctl start mysqld &>>$log_file
-if [ $? -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
-  else
-    echo -e "\e[31mFAILED\e[0m"
-    exit 1
-fi
+stat_check
 
 echo Setup root Password
 mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$log_file
-if [ $? -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
-  else
-    echo -e "\e[31mFAILED\e[0m"
-    exit 1
-fi
+stat_check
 
