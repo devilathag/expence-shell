@@ -29,7 +29,7 @@ fi
 
 cd /usr/share/nginx/html
 
-echo Download $component Code
+echo Download frontend Code
   curl -s -o /tmp/$frontend.zip https://expense-artifacts.s3.amazonaws.com/$frontend.zip >>$log_file
 if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e[0m"
@@ -38,7 +38,7 @@ if [ $? -eq 0 ]; then
     exit 1
 fi
 
-echo Extracting $component Code
+echo Extracting frontend Code
   unzip /tmp/$component.zip >>$log_file
 if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e[0m"
