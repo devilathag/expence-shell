@@ -30,7 +30,7 @@ fi
 
 
 echo Download frontend Code
-  curl -s -o /tmp/$frontend.zip https://expense-artifacts.s3.amazonaws.com/$frontend.zip >>$log_file
+  curl -s -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip >>$log_file
 if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e[0m"
   else
