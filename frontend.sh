@@ -12,17 +12,9 @@ echo Removing Old Nginx content
 rm -rf /usr/share/nginx/html/* &&>>$log_file
 stat_check
 
-
-
-echo Download frontend Code
-  curl -s -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip >>$log_file
-stat_check
-
 cd /usr/share/nginx/html
 
-echo Extracting frontend Code
-  unzip /tmp/frontend.zip >>$log_file
-stat_check
+download_and_extract
 
 echo Starting Nginx Service
 systemctl enable nginx &&>>$log_file
