@@ -1,12 +1,12 @@
 log_file=/tmp/expense.log
 
 download_and_extract() {
-  echo Download $component Code
-  curl -s -o /tmp/$component.zip https://expense-artifacts.s3.amazonaws.com/$component.zip >>$log_file
+  echo Download $com Code
+  curl -s -o /tmp/$com.zip https://expense-artifacts.s3.amazonaws.com/$com.zip >>$log_file
   stat_check
 
-  echo Extracting $component Code
-  unzip /tmp/$component.zip >>$log_file
+  echo Extracting $com Code
+  unzip /tmp/$com.zip >>$log_file
   stat_check
 }
 
